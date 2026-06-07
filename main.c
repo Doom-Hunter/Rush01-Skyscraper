@@ -6,7 +6,7 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 15:31:41 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 23:07:14 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/07 23:23:58 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_malloc_board(unsigned short **board, int board_size)
 	int	y;
 
 	x = 0;
-	y = 0;
 	while (x < board_size)
 	{
 		board[x] = malloc(sizeof(unsigned short) * board_size);
