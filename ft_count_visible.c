@@ -1,32 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_number_from_mask.c                              :+:      :+:    :+:   */
+/*   ft_count_visible.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/07 19:56:39 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 22:25:48 by tnay-min         ###   ########.fr       */
+/*   Created: 2026/06/07 22:45:35 by tnay-min          #+#    #+#             */
+/*   Updated: 2026/06/07 22:48:12 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_number_from_mask(unsigned short mask)
+int	ft_get_bit_index(unsigned short mask)
 {
 	int	i;
-	int	number;
 
-	number = 0;
 	i = 1;
-	while (mask > 0)
+	while (mask > 1)
 	{
-		if (mask & 1)
-		{
-			if (number)
-				return (-2);
-			number = i;
-		}
-		i++;
 		mask >>= 1;
+		i++;
 	}
-	return (number);
+	return (i);
+}
+
+int	ft_count_visible(unsigned short *row_col, int size, int start, int step)
+{
+	int	max;
+	int	visible;
+	int	curr;
+	int	count;
+
+	max = 0;
+	visible = 0;
+	count = 0;
+	while (count < size)
+	{
+		curr = ft_get_bit_index(row_col[start]);
+		if (curr > max)
+		{
+			max = curr;
+			visible++;
+		}
+		start += step;
+		count++;
+	}
+	return (visible);
 }

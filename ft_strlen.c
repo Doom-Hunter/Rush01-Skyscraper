@@ -6,20 +6,19 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 15:31:54 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 15:31:54 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/07 22:40:28 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
 	int	i;
-	
+
 	i = 0;
-	while(*str)
+	while (*str)
 	{
 		i++;
 		str++;
 	}
-	
 	return (i);
 }

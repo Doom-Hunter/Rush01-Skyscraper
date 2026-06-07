@@ -6,11 +6,11 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 19:58:52 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 19:58:52 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/07 22:32:55 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {

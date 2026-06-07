@@ -6,19 +6,19 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 20:01:54 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 20:01:54 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/07 22:31:21 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
-int	ft_print(char *str);
-int	ft_number_from_mask(unsigned short mask);
+int		ft_print(char *str);
+int		ft_number_from_mask(unsigned short mask);
 
-void	ft_print_board(unsigned short **board, int board_size)
+void	ft_check_error(unsigned short **board, int board_size)
 {
 	int	x;
 	int	y;
-	
+
 	x = 0;
 	while (x < board_size)
 	{
@@ -34,6 +34,14 @@ void	ft_print_board(unsigned short **board, int board_size)
 		}
 		x++;
 	}
+}
+
+void	ft_print_board(unsigned short **board, int board_size)
+{
+	int	x;
+	int	y;
+
+	ft_check_error(board, board_size);
 	x = 0;
 	while (x < board_size)
 	{

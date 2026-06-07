@@ -6,54 +6,25 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 19:54:11 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 19:54:11 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/07 22:48:06 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_is_used(unsigned short *perm, int index, unsigned short current);
-
-static int	ft_get_bit_index(unsigned short mask)
-{
-	int	i;
-
-	i = 1;
-	while (mask > 1)
-	{
-		mask >>= 1;
-		i++;
-	}
-	return (i);
-}
+int		ft_is_used(unsigned short *perm, int index, unsigned short current);
+void	ft_free_three(void *m1, void *m2, void *m3);
+int		ft_count_visible(
+			unsigned short *row_col, int size, int start, int step);
 
 int	ft_check_row_clues(unsigned short *row, int *clues, int size, int row_id)
 {
-	int	i;
-	int	max;
 	int	visible;
-	int	curr;
 
-	max = 0;
-	visible = 0;
-	i = -1;
-	while (++i < size)
-	{
-		curr = ft_get_bit_index(row[i]);
-		if (curr > max && ++visible)
-			max = curr;
-	}
+	visible = ft_count_visible(row, size, 0, 1);
 	if (clues[size * 2 + row_id] != visible)
 		return (1);
-	max = 0;
-	visible = 0;
-	i = size;
-	while (--i >= 0)
-	{
-		curr = ft_get_bit_index(row[i]);
-		if (curr > max && ++visible)
-			max = curr;
-	}
+	visible = ft_count_visible(row, size, size - 1, -1);
 	return (clues[size * 3 + row_id] != visible);
 }
 
@@ -111,7 +82,5 @@ void	ft_permute_row(unsigned short **board, int *clues, int size, int row_id)
 	i = -1;
 	while (++i < size)
 		board[row_id][i] &= data[1][i];
-	free(data[0]);
-	free(data[1]);
-	free(perm);
+	ft_free_three(data[0], data[1], perm);
 }

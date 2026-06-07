@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_columns.c                                       :+:      :+:    :+:   */
+/*   ft_solve_skyscraper.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 19:54:29 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 19:54:29 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/07 22:40:04 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_permute_row(unsigned short **board, int *clues, int size, int row_id);
-void	ft_permute_col(unsigned short **board, int *clues, int size, int col_id);
-
-int	ft_number_from_mask(unsigned short mask);
+void	ft_permute_row(
+			unsigned short **board, int *clues, int size, int row_id);
+void	ft_permute_col(
+			unsigned short **board, int *clues, int size, int col_id);
+int		ft_number_from_mask(unsigned short mask);
 
 int	ft_is_used(unsigned short *perm, int index, unsigned short current)
 {
