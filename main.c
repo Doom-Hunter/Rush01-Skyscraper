@@ -6,7 +6,7 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 15:31:41 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 22:44:46 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/07 22:53:19 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ int	main(int argc, char **argv)
 	board_size = 4;
 	clues = malloc(sizeof(int *) * 4 * board_size);
 	if (argc != 2 || ft_parse_clues(argv[1], clues, board_size) != 0)
-	{
-		ft_print("Wrong input\n");
 		return (0);
-	}
 	board = malloc(sizeof(unsigned short *) * board_size);
 	ft_malloc_board(board, board_size);
 	ft_solve_skyscraper(board, clues, board_size);
