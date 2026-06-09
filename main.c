@@ -6,7 +6,7 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 15:31:41 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 23:28:36 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/09 00:37:29 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int		ft_putchar(char c);
 int		ft_print(char *str);
 void	ft_print_board(unsigned short **board, int board_size);
+void	ft_print_board_binary(unsigned short **board, int board_size);
 int		ft_parse_clues(char *str, int *clues, int size);
 int		ft_solve_skyscraper(unsigned short **board, int *clues, int size);
 
@@ -38,7 +39,7 @@ void	ft_malloc_board(unsigned short **board, int board_size)
 	}
 }
 
-int	main(int argc, char **argv)
+int	main_(int argc, char **argv)
 {
 	int				board_size;
 	int				*clues;

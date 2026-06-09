@@ -6,15 +6,14 @@
 /*   By: tnay-min <tnay-min@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/07 19:54:29 by tnay-min          #+#    #+#             */
-/*   Updated: 2026/06/07 23:28:06 by tnay-min         ###   ########.fr       */
+/*   Updated: 2026/06/09 12:30:43 by tnay-min         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_permute_row(
-			unsigned short **board, int *clues, int size, int row_id);
-void	ft_permute_col(
-			unsigned short **board, int *clues, int size, int col_id);
+int		ft_calc_rows(unsigned short **board, int *clues, int size, int *changed);
+int		ft_calc_cols(unsigned short **board, int *clues, int size, int *changed);
 int		ft_number_from_mask(unsigned short mask);
+int		ft_check_atomic(unsigned short **board, int size, int *changed);
 
 int	ft_is_used(unsigned short *perm, int index, unsigned short current)
 {
@@ -52,21 +51,18 @@ int	ft_is_solved(unsigned short **board, int size)
 
 int	ft_solve_skyscraper(unsigned short **board, int *clues, int size)
 {
-	int	i;
 	int	solved;
 	int	hard_limit;
+	int	changed;
 
-	hard_limit = 100;
+	hard_limit = 10000;
 	solved = 0;
-	while (!solved && hard_limit > 0)
+	while (!solved)
 	{
-		i = 0;
-		while (i < size)
-		{
-			ft_permute_row(board, clues, size, i);
-			ft_permute_col(board, clues, size, i);
-			i++;
-		}
+		changed = 0;
+		ft_calc_rows(board, clues, size, &changed);
+		ft_calc_cols(board, clues, size, &changed);
+		ft_check_atomic(board, size, &changed);
 		solved = ft_is_solved(board, size);
 		hard_limit--;
 	}
